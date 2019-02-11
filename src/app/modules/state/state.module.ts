@@ -4,7 +4,7 @@ import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 import { CommonModule } from '@angular/common';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
-import { environment } from 'src/environments/environment';
+import { environment } from './../../../environments/environment.prod';
 
 @NgModule({
   declarations: [],
@@ -18,8 +18,7 @@ import { environment } from 'src/environments/environment';
 export class StateModule {
   constructor(@Optional() @SkipSelf() parentModule: StateModule) {
     if (parentModule) {
-      throw new Error(
-        'StateModule is already loaded. Import it in the AppModule only');
+      throw new Error('StateModule is already loaded. Import it in the AppModule only');
     }
   }
 
