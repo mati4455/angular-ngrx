@@ -11,9 +11,10 @@ import { StoreModule } from '@ngrx/store';
 import { environment } from './../environments/environment.prod';
 import { EffectsModule } from '@ngrx/effects';
 import { appEffects } from './store/effects/app.effects';
+import { ConfigComponent } from './config/config.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ConfigComponent],
   imports: [
     CommonModule,
     BrowserModule,
