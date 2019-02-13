@@ -1,12 +1,25 @@
+import { Task } from './../../models/task';
 import { Action } from '@ngrx/store';
 
 export enum ETodoActions {
+  GetTasks = '[Todo] Get tasks',
+  TasksLoaded = '[Todo] Get tasks success',
   AddTask = '[Todo] Add task',
   EditTask = '[Todo] Edit task',
   DeleteTask = '[Todo] Delete task',
   CompleteTask = '[Todo] Complete task',
   CompleteAllTasks = '[Todo] Complete all tasks',
   ClearCompleted = '[Todo] Clear completed'
+}
+
+export class GetTasks implements Action {
+  public readonly type = ETodoActions.GetTasks;
+  constructor() {}
+}
+
+export class TasksLoaded implements Action {
+  public readonly type = ETodoActions.TasksLoaded;
+  constructor(public tasks: Task[]) {}
 }
 
 export class AddTask implements Action {
@@ -40,6 +53,8 @@ export class ClearCompleted implements Action {
 }
 
 export type TodoActions =
+  | GetTasks
+  | TasksLoaded
   | AddTask
   | EditTask
   | DeleteTask

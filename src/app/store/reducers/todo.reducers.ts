@@ -1,8 +1,12 @@
-import { Task } from './../../models/task';
-import { TodoActions, ETodoActions } from './../actions/todo.actions';
+import { Task } from '../../models/task';
+import { TodoActions, ETodoActions } from '../actions/todo.actions';
 
 export const todoReducers = (state: Task[] = [], action: TodoActions): Task[] => {
   switch (action.type) {
+    case ETodoActions.TasksLoaded: {
+      return action.tasks;
+    }
+
     case ETodoActions.AddTask: {
       return [
         ...state,
