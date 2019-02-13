@@ -1,0 +1,14 @@
+<span class="status" (click)="toggleStatus()">{{ task.completed ? '&#10004;' : '&nbsp;' }}</span>
+<span *ngIf="!editable" (click)="enableEditMode()" type="text" [class.cross]="task.completed">{{
+  task.text
+}}</span>
+<form #form="ngForm" *ngIf="editable" (ngSubmit)="name.blur()">
+  <input
+    #name
+    type="text"
+    name="text"
+    [(ngModel)]="text"
+    (blur)="saveChanges()"
+    autocomplete="off"
+  />
+</form>

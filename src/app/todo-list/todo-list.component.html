@@ -1,0 +1,7 @@
+<app-todo-new-task></app-todo-new-task>
+
+<app-todo-filter-switcher></app-todo-filter-switcher>
+
+<div class="todo-list">
+  <app-todo-element *ngFor="let task of (todos$ | async)" [task]="task"></app-todo-element>
+</div>
