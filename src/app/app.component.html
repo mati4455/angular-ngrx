@@ -21,3 +21,7 @@
 </ul>
 
 <router-outlet></router-outlet>
+
+<h2>Config test</h2>
+<p>Number of messages per page: {{ (config$ | async)?.numberOfMessagesPerPage }}</p>
+<p>Sort direction: {{ (config$ | async)?.sortDirection }}</p>
