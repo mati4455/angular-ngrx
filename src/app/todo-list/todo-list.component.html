@@ -5,3 +5,5 @@
 <div class="todo-list">
   <app-todo-element *ngFor="let task of (todos$ | async)" [task]="task"></app-todo-element>
 </div>
+
+Pozostało do zrobienia: {{ leftToDo$ | async }}

@@ -1,6 +1,6 @@
 import { AddTask, CompleteTask, EditTask, GetTasks } from './../store/actions/todo.actions';
 import { Component, OnInit } from '@angular/core';
-import { getVisibleTasks } from '../store/selectors/todo.selectors';
+import { getVisibleTasks, getNumberOfTasksToDo } from '../store/selectors/todo.selectors';
 import { select, Store } from '@ngrx/store';
 import { AppState } from '../store/state/app.state';
 
@@ -11,6 +11,7 @@ import { AppState } from '../store/state/app.state';
 })
 export class TodoListComponent implements OnInit {
   todos$ = this.store.pipe(select(getVisibleTasks));
+  leftToDo$ = this.store.pipe(select(getNumberOfTasksToDo));
 
   constructor(private store: Store<AppState>) {}
 
